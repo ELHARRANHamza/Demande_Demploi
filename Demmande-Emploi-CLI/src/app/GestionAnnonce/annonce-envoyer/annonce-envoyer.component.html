@@ -1,0 +1,156 @@
+<table class="table bg-light table-hover">
+    <thead class="bg-info text-light">
+        <th>
+            Nom
+        </th>
+        <th>
+            Description
+        </th>
+        <th>
+            Image
+        </th>
+        <th>
+            Confirmation
+        </th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of service.annoncesEnvoyer">
+            <td>
+                {{item.nomStage}}
+            </td>
+            <td>
+                {{item.descriptionStage.substring(0,20)}}...
+            </td>
+            <td>
+                <img src="{{getImage(item.image)}}" alt="" srcset=""
+                    style="width:80px;height: 80px; border-radius: 50%;">
+            </td>
+            <td>
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modelAccept">
+                    <i class="fa fa-check"></i>
+                </button> |
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modelDelete">
+                    <i class="fa fa-trash"></i>
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="modelDelete" tabindex="-1" role="dialog" aria-labelledby="modelTitleId"
+                    aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Do You Want Delete This Annonce ?</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <label for="nom">Nom Du Stage</label>
+                                    <input type="text" name="nomStage" id="nom" value="{{item.nomStage}}"
+                                        class="form-control" disabled>
+                                </div>
+                                <div class="form-group">
+                                    <label for="nom">Description Du Stage</label>
+                                    <textarea type="text" name="nomStage" id="nom" value="{{item.descriptionStage}}"
+                                        class="form-control" disabled>
+                                       </textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="nom">User Email</label>
+                                    <input type="text" name="nomStage" id="nom" value="{{item.emailUser}}"
+                                        class="form-control" disabled>
+                                </div>
+                                <div class="form-group">
+                                    <label for="nom">Catégorie Du Stage</label>
+                                    <input type="text" name="nomStage" id="nom" value="{{item.nom_Cat}}"
+                                        class="form-control" disabled>
+                                </div>
+                                <div class="form-group">
+                                    <label for="nom">Sector Du Stage</label>
+                                    <input type="text" name="nomStage" id="nom" value="{{item.nom_sector}}"
+                                        class="form-control" disabled>
+                                </div>
+                                <div class="form-group">
+                                    <label for="nom">Ville Du Stage</label>
+                                    <input type="text" name="nomStage" id="nom" value="{{item.nom_ville}}"
+                                        class="form-control" disabled>
+                                </div>
+                                <div class="form-group">
+                                    <label for="nom">Image</label>
+                                    <br>
+                                   <img src="{{getImage(item.image)}}" style="width: 200px;height: 200px;border-radius: 50%;" class="img-thumbnail" alt="">
+                                </div>
+                                
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-danger" (click)='Refuser(item.id)'>Refuser</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Modal -->
+                <div class="modal fade" id="modelAccept" tabindex="-1" role="dialog" aria-labelledby="modelTitleId"
+                    aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Do You Want Accepte This Annonce ?</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <label for="nom">Nom Du Stage</label>
+                                    <input type="text" name="nomStage" id="nom" value="{{item.nomStage}}"
+                                        class="form-control" disabled>
+                                </div>
+                                <div class="form-group">
+                                    <label for="nom">Description Du Stage</label>
+                                    <textarea type="text" name="nomStage" id="nom" value="{{item.descriptionStage}}"
+                                        class="form-control" disabled>
+                                       </textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="nom">User Email</label>
+                                    <input type="text" name="nomStage" id="nom" value="{{item.emailUser}}"
+                                        class="form-control" disabled>
+                                </div>
+                                <div class="form-group">
+                                    <label for="nom">Catégorie Du Stage</label>
+                                    <input type="text" name="nomStage" id="nom" value="{{item.nom_Cat}}"
+                                        class="form-control" disabled>
+                                </div>
+                                <div class="form-group">
+                                    <label for="nom">Sector Du Stage</label>
+                                    <input type="text" name="nomStage" id="nom" value="{{item.nom_sector}}"
+                                        class="form-control" disabled>
+                                </div>
+                                <div class="form-group">
+                                    <label for="nom">Ville Du Stage</label>
+                                    <input type="text" name="nomStage" id="nom" value="{{item.nom_ville}}"
+                                        class="form-control" disabled>
+                                </div>
+                                <div class="form-group">
+                                    <label for="nom">Image</label>
+                                    <br>
+                                   <img src="{{getImage(item.image)}}" style="width: 200px;height: 200px;border-radius: 50%;" class="img-thumbnail" alt="">
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                                <button type="button" class="btn btn-primary" (click)='Accepter(item.id)'>Accepte</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </td>
+        </tr>
+    </tbody>
+</table>

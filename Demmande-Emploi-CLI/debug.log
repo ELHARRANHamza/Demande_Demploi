@@ -1,0 +1,4 @@
+[1007/010025.513:ERROR:process_reader_win.cc(155)] SuspendThread: Accès refusé. (0x5)
+[1007/010025.513:ERROR:process_reader_win.cc(155)] SuspendThread: Accès refusé. (0x5)
+[1007/010025.513:ERROR:process_reader_win.cc(127)] NtOpenThread: {Accès refusé} Un processus a demandé l’accès a un objet, mais il ne bénéficie pas des autorisations nécessaires. (0xc0000022)
+[1007/010025.575:ERROR:exception_snapshot_win.cc(100)] thread ID 17760 not found in process

@@ -1,0 +1,63 @@
+<div class="container" style="margin-top: 100px;">
+    <div class="row">
+
+        <div class="col-md-6">
+            <form (submit)='AddImage()' enctype="multipart/form-data">
+                <h3 class="alert alert-info">Add Your Annonce</h3>
+                <div class="form-group">
+                    <label for="nom">Nom Du Stage</label>
+                    <input type="text" [(ngModel)]='service.annonce.nomStage' name="nomStage" id="nom"
+                        class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="desc">Description</label>
+                    <br>
+                    <textarea name="" id="desc" rows="10" [(ngModel)]='service.annonce.descriptionStage'
+                        name="DescriptionStage" class="form-control"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="listCat">Categories</label>
+                    <select [(ngModel)]='this.service.selectedValueCat' name="categorie" class="form-control" id="listCat">
+                        <option *ngFor='let item of serviceCat.categories' value="{{item.id}}">{{item.cat_Nom}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="listType">Type</label>
+                    <select  [(ngModel)]='this.service.selectedValueType' name="selectedValueType" class="form-control" id="listType">
+                        <option *ngFor='let item of serviceType.types' value="{{item.id}}">{{item.nom}}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="listSector">Sector</label>
+                    <select  [(ngModel)]='this.service.selectedValueSector' name="selectedValueSector" class="form-control" id="listSector">
+                        <option *ngFor='let item of serviceSector.sectors' value="{{item.id}}">{{item.sector_Nom}}
+                        </option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="listVille">Ville</label>
+                    <select  [(ngModel)]='this.service.selectedValueVille' name="selectedValueVille" class="form-control" id="listVille">
+                        <option *ngFor='let item of serviceVille.villes' value="{{item.id}}">{{item.ville_Name}}
+                        </option>
+                    </select>
+                </div>
+                <div class="form-group" *ngIf='service.annonce.id!=0'>
+                    <label for="nom">Image</label>
+                    <img src='{{showImage(service.annonce.image)}}' style="width: 200px;height: 200px;border-radius: 50%;" alt=""
+                        srcset="">
+                </div>
+                <div class="form-group">
+                    <label for="nom">Upload Image</label>
+                    <input type="file" (change)="UploadImage($event.target.files)" name="files" id="files"
+                        class="form-control">
+                </div>
+                <button type="submit" class="btn btn-outline-info" style="margin-bottom: 100px;">{{btn}}</button>
+            </form>
+        </div>
+        <div class="col-md-6">
+            <h3 class="alert alert-info">Liste Your Annonce</h3>
+            <app-liste-annonce></app-liste-annonce>
+        </div>
+    </div>
+</div>

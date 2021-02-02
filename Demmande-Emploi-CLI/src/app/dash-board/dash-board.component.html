@@ -1,0 +1,148 @@
+<div class="wrapper">
+    <!-- Sidebar  -->
+    <nav id="sidebar">
+        <div class="sidebar-header">
+            <h3>Administrator</h3>
+        </div>
+
+        <ul class="list-unstyled components">
+            <p>Dummy Heading</p>
+            <li class="active">
+                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Users</a>
+                <ul class="collapse list-unstyled" id="homeSubmenu">
+                    <li>
+                        <a (click)='CheckUser()'>Liste Users</a>
+                    </li>
+                    <li>
+                        <a (click)='CheckUserRoleList()'>Liste Users Roles</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a (click)='GetRoleListe()'>Roles</a>
+            </li>
+            <li>
+                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Groupe</a>
+                <ul class="collapse list-unstyled" id="pageSubmenu">
+                    <li>
+                        <a (click)='GetAnnonceList()'>Annonce</a>
+                    </li>
+                    <li>
+                        <a (click)='GetCategoryList()'>Catégorie</a>
+                    </li>
+                    <li>
+                        <a (click)='GetSectorList()'>Sector</a>
+                    </li>
+                    <li>
+                        <a (click)='GetTypeList()'>Type</a>
+                    </li>
+                    <li>
+                        <a (click)='GetVilleList()'>Ville</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a (click)='GetMessage()'>Liste Message</a>
+            </li>
+        </ul>
+
+        <ul class="list-unstyled CTAs">
+            <li>
+                <a href="https://bootstrapious.com/tutorial/files/sidebar.zip" class="download">Download source</a>
+            </li>
+            <li>
+                <a href="https://bootstrapious.com/p/bootstrap-sidebar" class="article">Back to article</a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Page Content  -->
+    <div id="content">
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+
+                <button type="button" id="sidebarCollapse" class="btn btn-info">
+                    <i class="fa fa-align-left"></i>
+                    <span>Toggle Sidebar</span>
+                </button>
+                <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <i class="fa fa-align-justify"></i>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item" [ngClass]="{'active': isAnnonceEnvoyer}">
+                            <a class="nav-link" (click)='GetAnnonceEnvoyer()'>Annonce Envoyer</a>
+                        </li>
+                        <li class="nav-item" [ngClass]="{'active': isAnnonceAccepter}">
+                            <a class="nav-link" (click)='GetAnnonceAccepter()'>Annonce Accepter</a>
+                        </li>
+                        <li class="nav-item" [ngClass]="{'active': isAnnonceRefuser}">
+                            <a class="nav-link" (click)='GetAnnonceRefuser()'>Annonce Refuser</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container">
+            <h5>Dashboard</h5>
+            <hr>
+            <div *ngIf='isAnnonceListe'>
+
+                <app-annonce></app-annonce>
+            </div>
+            <div *ngIf='isCategoryList'>
+                <h5 class="alert alert-info">Liste All Categories</h5>
+                <app-liste-categories></app-liste-categories>
+            </div>
+            <div *ngIf='isSectorListe'>
+                <h5 class="alert alert-info">Liste All Sectors</h5>
+                <app-liste-sector></app-liste-sector>
+            </div>
+            <div *ngIf='isTypeListe'>
+                <h5 class="alert alert-info">Liste All Types</h5>
+                <app-liste-type></app-liste-type>
+            </div>
+            <div *ngIf='isVilleListe'>
+                <h5 class="alert alert-info">Liste All Ville</h5>
+                <app-liste-ville></app-liste-ville>
+            </div>
+            <div *ngIf='isUserList'>
+                <h5 class="alert alert-info">Liste All Users</h5>
+                <p>
+                    <a class="btn btn-success text-light" (click)='AddUser()'>Add New Users</a>
+                </p>
+                <app-users></app-users>
+            </div>
+            <div *ngIf='isAddUser'>
+                <app-add-user></app-add-user>
+            </div>
+            <div *ngIf='isAddRole'>
+                <h5 class="alert alert-info">Liste All Roles</h5>
+                <app-liste-roles></app-liste-roles>
+            </div>
+            <div *ngIf="isAnnonceEnvoyer && url === 'controlpanel'">
+                <h4 class="alert alert-info">Liste Des Annonces Envoyées</h4>
+                <app-annonce-envoyer></app-annonce-envoyer>
+            </div>
+            <div *ngIf='isAnnonceAccepter'>
+                <h4 class="alert alert-success">Liste Des Annonces Accepter</h4>
+                <app-annonce-accepter></app-annonce-accepter>
+            </div>
+            <div *ngIf='isAnnonceRefuser'>
+                <h4 class="alert alert-danger">Liste Des Annonces Refuser</h4>
+                <app-annonce-refuser></app-annonce-refuser>
+            </div>
+            <div *ngIf='isUserRolesList'>
+                <app-user-roles></app-user-roles>
+            </div>
+            <div *ngIf='isMessage'>
+                <app-liste-message></app-liste-message>
+            </div>
+        </div>
+    </div>
+</div>

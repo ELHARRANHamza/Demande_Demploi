@@ -1,0 +1,68 @@
+<div class="container">
+    <div class="row">
+        <h4 class="alert alert-success" style="width: 100%;">Liste All Message</h4>
+        <table class="table bg-light table-hover">
+            <thead class="bg-info text-light">
+                <th>
+                    email
+                </th>
+                <th>
+                    name
+                </th>
+                <th>
+                    message
+                </th>
+                <th>
+                    delete
+                </th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of service.messages">
+                    <td>
+                        {{item.email}}
+                    </td>
+                    <td>
+                        {{item.name}}
+                    </td>
+                    <td>
+                        {{item.message}}
+                    </td>
+                    <th>
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-outline-danger" data-toggle="modal"
+                            data-target="#modalDelte">
+                            <i class="fa fa-trash-o" aria-hidden="true"></i>
+                        </button>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="modalDelte" tabindex="-1" role="dialog"
+                            aria-labelledby="modelTitleId" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">Question </h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        do you want delete this Message
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-danger"
+                                            (click)="Delete(item.id)">delete</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+

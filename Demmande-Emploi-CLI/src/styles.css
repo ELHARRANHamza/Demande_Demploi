@@ -1,0 +1,38 @@
+@import"~bootstrap/dist/css/bootstrap.min.css";
+@import"~font-awesome/css/font-awesome.css";
+table tr:hover{
+cursor: pointer;
+}
+.myfooter{
+    background-color:#23649c;
+    }
+    .myfooter h3{
+        text-align:center;
+        color:#e7e7e7;
+    }
+    .myfooter ul li a{
+        color:white;
+    }
+    .myfooter p{
+        margin-right:10px auto;
+    }
+    .myfooter ul li a:hover{
+        color:#ddd;
+    }
+    .myfooter .subfotter{
+        background-color:#2e508e;
+        color:white;
+        text-align:center;
+        padding:10px;
+    }
+    .navbar{
+        background-color: #2e508e;
+    }
+    .navbar .nav-item .nav-link{
+        font-weight: bold;
+        color: #fff;
+    }
+    .navbar .nav-item .nav-link:hover{
+        font-weight: bold;
+        color: #ddd;
+    }
